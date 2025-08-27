@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Assets 4 Godot",
+  "url": "https://assets4godot.com",
+  "logo": "https://assets4godot.com/icons/assets4godot-512x512.png",
+  "description": "Reliable platform for selling and buying high-quality, premium assets for the Godot Engine. Frequently updated marketplace that supports game development, offering stable partnerships for individual creators and businesses.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AOperat",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Eugeniusza Kwiatkowskiego 9",
+      "addressLocality": "Stalowa Wola",
+      "postalCode": "37-450",
+      "addressCountry": "PL"
+    }
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Assets4Godot"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+48 885 037 644",
+    "email": "contact@assets4godot.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Osiedle Zielone 14/15",
+      "addressLocality": "Tarnów",
+      "postalCode": "33-100",
+      "addressCountry": "PL"
+    }
+  },
+  "sameAs": [
+    "https://www.facebook.com/people/GAME-Assets-assets4godotcom/61567068265921/"
+  ]
+}
