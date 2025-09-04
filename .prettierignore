@@ -1,0 +1,7 @@
+.next
+.vercel
+.husky
+public
+out
+node_modules
+*.md

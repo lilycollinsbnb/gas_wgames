@@ -1,0 +1,38 @@
+
+{
+  "name": "Assets 4 Godot - best quality store, marketplace for your Godot game projects",
+  "short_name": "Assets for Godot",
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#348155",
+  "background_color": "#595552",
+  "orientation": "portrait",
+  "icons": [ 
+    { 
+      "src": "/icons/assets4godot-192x192.png", 
+      "sizes": "192x192",
+      "type": "image/png" 
+    },
+    { 
+      "src": "/icons/assets4godot-256x256.png", 
+      "sizes": "256x256", 
+      "type": "image/png" 
+    }, 
+    { 
+      "src": "/icons/assets4godot-384x384.png", 
+      "sizes": "384x384", 
+      "type": "image/png" 
+    }, 
+    { 
+      "src": "/icons/assets4godot-512x512.png", 
+      "sizes": "512x512", 
+      "type": "image/png" 
+    }
+  ],
+  "scope": "/",
+  "categories": ["tools", "productivity", "games", "assets", "pixel-art", "3d"],
+  "lang": "en",
+  "dir": "ltr",
+  "related_applications": [],
+  "description": "Discover high-quality, premium assets for Godot Engine. Our continuously developed marketplace, with individual tools and regularly added new assets, makes game development easier. Perfect for both individuals and businesses."
+}
