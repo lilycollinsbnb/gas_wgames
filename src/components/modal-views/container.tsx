@@ -71,8 +71,8 @@ const DeleteOrderModal = dynamic(
   { ssr: false }
 )
 
-const SelectBetaAccessPlatformModal = dynamic(
-  () => import('@/components/games/game-select-beta-access-platform'),
+const RedeemBetaAccessConfirmationModal = dynamic(
+  () => import('@/components/games/game-redeem-beta-access-confirmarion-modal'),
   { ssr: false }
 )
 
@@ -117,8 +117,8 @@ function renderModalContent(view: MODAL_VIEWS) {
       return <RedeemBetaAccesView />
     case 'DOWNLOAD_GAME_MODAL':
       return <GameDownloadView />
-    case 'BETA_ACCESS_SELECT_PLATFORM_MODAL':
-      return <SelectBetaAccessPlatformModal />
+    case 'REDEEM_BETA_ACCESS_SUCCESS_VIEW':
+      return <RedeemBetaAccessConfirmationModal />
     default:
       return null
   }

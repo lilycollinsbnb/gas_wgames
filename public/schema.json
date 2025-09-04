@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Assets 4 Godot",
-  "url": "https://assets4godot.com",
-  "logo": "https://assets4godot.com/icons/assets4godot-512x512.png",
+  "name": "Godot 4 Games",
+  "url": "https://godot4games.com",
+  "logo": "https://godot4games.com/icons/assets4godot-512x512.png",
   "description": "Reliable platform for selling and buying high-quality, premium assets for the Godot Engine. Frequently updated marketplace that supports game development, offering stable partnerships for individual creators and businesses.",
   "publisher": {
     "@type": "Organization",
@@ -18,7 +18,7 @@
   },
   "brand": {
     "@type": "Brand",
-    "name": "Assets4Godot"
+    "name": "Games4Godot"
   },
   "contactPoint": {
     "@type": "ContactPoint",
@@ -32,8 +32,5 @@
       "postalCode": "33-100",
       "addressCountry": "PL"
     }
-  },
-  "sameAs": [
-    "https://www.facebook.com/people/GAME-Assets-assets4godotcom/61567068265921/"
-  ]
+  }
 }

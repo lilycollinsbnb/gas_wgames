@@ -158,7 +158,11 @@ class Client {
   }
   betaAccess = {
     get: ({ code }: { code: string }) =>
-      HttpClient.get<BetaAccess>(`${API_ENDPOINTS.BETA_ACCESS}/code/${code}`)
+      HttpClient.get<BetaAccess>(
+        `${API_ENDPOINTS.BETA_ACCESS}/code/${encodeURIComponent(code)}`
+      ),
+    reedemBetaAccess: (data: { code: string }) =>
+      HttpClient.post<string>(API_ENDPOINTS.REDEEM_BETA_ACCESS_LINK, data)
   }
   blog = {
     all: (query?: BlogPostQueryOptions) =>
@@ -185,12 +189,7 @@ class Client {
     all: (options?: Partial<QueryOptions> & Partial<GameGetOptions>) =>
       HttpClient.get<GamePaginator>(API_ENDPOINTS.GAMES_PUBLIC, options),
     myGames: (options?: Partial<QueryOptions> & Partial<GameGetOptions>) =>
-      HttpClient.get<GamePaginator>(`${API_ENDPOINTS.GAMES}/my-games`, options),
-    reedemBetaAccess: (data: {
-      code: string
-      platform: TargetPlatform
-      game_id: string
-    }) => HttpClient.post<string>(API_ENDPOINTS.REDEEM_BETA_ACCESS_LINK, data)
+      HttpClient.get<GamePaginator>(`${API_ENDPOINTS.GAMES}/my-games`, options)
   }
   tags = {
     all: (query?: QueryOptions) =>
@@ -314,13 +313,13 @@ class Client {
   }
   licenses = {
     get: ({ id, language }: GetByIdParams) =>
-      HttpClient.get<License>(`${API_ENDPOINTS.LICSENSE}/${id}`, {
+      HttpClient.get<License>(`${API_ENDPOINTS.LICENSE}/${id}`, {
         language,
         include_content: true
       }),
     all: (
       options?: Partial<LicenseQueryOptions> & Partial<LicenseGetOptions>
-    ) => HttpClient.get<LicensePaginator>(API_ENDPOINTS.LICSENSE, options)
+    ) => HttpClient.get<LicensePaginator>(API_ENDPOINTS.LICENSE, options)
   }
   godotVersions = {
     all: (query?: GodotVersionQueryOptions) =>

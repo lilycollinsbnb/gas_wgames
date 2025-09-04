@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: 'https://assets4godot.com',
+  siteUrl: 'https://godot4games.com',
   generateRobotsTxt: true, // (Optional) Generates a robots.txt file
   sitemapSize: 5000, // Split sitemaps after reaching the limit
   changefreq: 'weekly', // Set default change frequency to weekly

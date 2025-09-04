@@ -589,6 +589,8 @@ export interface License {
 export interface LicenseQueryOptions extends QueryOptions {
   name?: string
   shop_id?: string
+  sortedBy?: string
+  orderBy?: string
   include_admin_created?: boolean
 }
 

@@ -1,14 +1,14 @@
 import AnchorLink from '@/components/ui/links/anchor-link'
 import routes from '@/config/routes'
-import usePrice from '@/lib/hooks/use-price'
 import { Game } from '@/types'
 import placeholder from '@/assets/images/placeholders/product.svg'
 import ImageWithFallback from '../ui/image-with-fallback'
+import { usePriceWithVAT } from '@/lib/hooks/use-price'
 
 export default function GameCard({ game }: { game: Game }) {
   const { name = '-', slug = '#', image, price = 0 } = game || {}
 
-  const { price: formattedPrice } = usePrice({
+  const { netPrice, grossPrice } = usePriceWithVAT({
     amount: price
   })
 
@@ -42,7 +42,7 @@ export default function GameCard({ game }: { game: Game }) {
           </AnchorLink>
         </h3>
         <span className="text-lg font-medium text-dark dark:text-light">
-          {formattedPrice}
+          {price === 0 ? 'Free' : `${netPrice}+VAT / ${grossPrice}`}
         </span>
       </div>
     </div>

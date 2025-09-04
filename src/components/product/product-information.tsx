@@ -7,9 +7,9 @@ import classNames from 'classnames'
 import { Category, CustomTag, License, Tag } from '@/types'
 import routes from '@/config/routes'
 import { useTranslation } from 'next-i18next'
-import { SettingIcon } from '../icons/setting-icon'
-import { CategoriesIcon } from '../icons/categories-icon'
 import { PencilIcon } from '../icons/pencil-icon'
+import { CategoriesIconSimple } from '../icons/categories-icon-simple'
+import { SettingIconSimple } from '../icons/setting-icon-simple'
 
 interface Props {
   className?: string
@@ -54,7 +54,7 @@ export default function ProductInformation({
       <div className="flex items-start text-dark dark:text-light mt-10">
         <strong className="flex w-36 flex-shrink-0 items-center font-normal text-dark-600 dark:text-light-600">
           <span className="w-8 flex-shrink-0 text-dark-900 dark:text-light-900">
-            <SettingIcon className="h-[18px] w-[18px]" />
+            <SettingIconSimple className="h-[18px] w-[18px]" />
           </span>
           {t('text-godot-version')}:
         </strong>
@@ -88,7 +88,7 @@ export default function ProductInformation({
         <div className="flex items-start text-dark dark:text-light">
           <strong className="flex w-36 flex-shrink-0 items-center pt-0.5 font-normal text-dark-600 dark:text-light-600">
             <span className="w-8 flex-shrink-0 text-dark-900 dark:text-light-900">
-              <CategoriesIcon className="h-5 w-5" />
+              <CategoriesIconSimple className="h-5 w-5" />
             </span>
             {t('text-categories')}:
           </strong>

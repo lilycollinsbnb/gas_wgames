@@ -1,63 +1,36 @@
-import React from 'react'
-import { useModalAction, useModalState } from '../modal-views/context'
+import React, { useState } from 'react'
+import { useModalAction } from '../modal-views/context'
 import Input from '../ui/forms/input'
 import Button from '../ui/button'
-import { useReedeemBetaAccessMutation } from '@/data/games'
 import { useTranslation } from 'react-i18next'
-import * as yup from 'yup'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { GameBuild, TargetPlatform } from '@/types'
-import Select from '../ui/forms/select'
-import getPlatformLabel from '@/lib/get-target-platform-label'
-
-interface FormValues {
-  code: string
-  platform: TargetPlatform
-}
+import { useRedeemBetaAccess } from '@/data/games'
 
 export default function BetaAccessModal() {
-  const { data } = useModalState()
   const { closeModal } = useModalAction()
   const { t } = useTranslation('common')
-  const { redeemBetaAccess, isLoading } = useReedeemBetaAccessMutation()
+  const [code, setCode] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const { redeem } = useRedeemBetaAccess()
 
-  const builds = (data?.builds as GameBuild[]) || []
-  const uniquePlatforms = Array.from(
-    new Set(builds.map((build) => build.platform))
-  )
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
 
-  const hasPlatforms = uniquePlatforms.length > 0
-  const defaultPlatform = hasPlatforms ? '' : 'windows'
-
-  const schema = yup.object().shape({
-    code: yup.string().required(t('text-access-code-required')),
-    platform: yup
-      .string()
-      .required(t('text-platform-required'))
-      .oneOf(
-        [TargetPlatform.WINDOWS, ...uniquePlatforms],
-        t('text-platform-required')
-      )
-  })
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<FormValues>({
-    resolver: yupResolver(schema),
-    defaultValues: {
-      platform: defaultPlatform as TargetPlatform
+    if (!code) {
+      setError(t('text-access-code-required'))
+      return
     }
-  })
 
-  const onSubmit = (formData: FormValues) => {
-    redeemBetaAccess({
-      code: formData.code,
-      game_id: data.game_id,
-      platform: formData.platform
-    })
+    setError(null)
+    setIsLoading(true)
+
+    try {
+      await redeem(code)
+    } catch (err: any) {
+      setError(err.message || t('text-something-went-wrong'))
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -68,34 +41,13 @@ export default function BetaAccessModal() {
             {t('text-redeem-beta-access')}
           </h2>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <Input
               label={t('text-access-code')}
-              {...register('code')}
-              error={errors.code?.message}
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              error={error || undefined}
               placeholder={t('access-code-input-placeholder')}
-            />
-
-            <Select
-              label="text-platform"
-              {...register('platform')}
-              error={errors.platform?.message}
-              options={
-                hasPlatforms
-                  ? [
-                      { value: '', label: 'text-select-platform-placeholder' },
-                      ...uniquePlatforms.map((p) => ({
-                        value: p,
-                        label: getPlatformLabel(p)
-                      }))
-                    ]
-                  : [
-                      {
-                        value: TargetPlatform.WINDOWS,
-                        label: getPlatformLabel(TargetPlatform.WINDOWS)
-                      }
-                    ]
-              }
             />
 
             <div className="flex justify-end gap-3 pt-2">

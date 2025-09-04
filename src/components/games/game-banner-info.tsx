@@ -2,8 +2,7 @@ import { Game } from '@/types'
 import { useTranslation } from 'next-i18next'
 import dayjs from 'dayjs'
 import getPlatformLabel from '@/lib/get-target-platform-label'
-import usePrice from '@/lib/hooks/use-price'
-import { VAT_RATE } from '@/data/static/vat-rate'
+import { usePriceWithVAT } from '@/lib/hooks/use-price'
 
 type Props = {
   game: Game
@@ -13,23 +12,18 @@ const GameBannerInfo: React.FC<Props> = ({ game }) => {
   const { t } = useTranslation('common')
 
   const priceValue = game.sale_price ?? game.price ?? 0
-  const { price: basePrice } = usePrice({
+
+  const { netPrice, grossPrice } = usePriceWithVAT({
     amount: priceValue,
     baseAmount: game.price ?? 0
   })
 
   const isFree = priceValue === 0
-  const priceWithVat = priceValue * (1 + VAT_RATE)
-
-  const { price: priceInclVat } = usePrice({
-    amount: priceWithVat,
-    baseAmount: game.price ?? 0
-  })
 
   function getPriceText() {
     return isFree
       ? `( ${t('text-free')} )`
-      : `${basePrice} + VAT / ${priceInclVat}`
+      : `${netPrice} + VAT / ${grossPrice}`
   }
 
   const rows = [

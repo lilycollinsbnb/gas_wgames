@@ -479,6 +479,10 @@
     "text-beta-access-expired": "Dostęp beta wygasł",
     "text-activate": "Aktywuj",
     "text-activate-product": "Aktywuj produkt",
-    "text-beta-access-already-used": "Ten kod dostępu został już użyty."
+    "text-beta-access-already-used": "Ten kod dostępu został już użyty.",
+    "text-game-added-to-account": "Gra została dodana do twojej kolekcji.",
+    "text-redeem-beta-access-confirmation": "Kod dostępu został aktywowany",
+    "text-no-authors-found": "Nie znaleziono żadnych autorów",
+    "text-no-authors-found-message": "Przepraszamy, nie udało nam się znaleźć żadnych autorów."
 }
   

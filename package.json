@@ -1,12 +1,12 @@
 {
-  "name": "@gas/shop",
+  "name": "@gas/games",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "clean": "rimraf \"{node_modules,.next,.cache}\"",
-    "dev": "next dev",
+    "dev": "next dev -p 3004",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3004",
     "lint": "next lint",
     "postbuild": "next-sitemap --config sitemap.config.js",
     "prepare": "husky install"
@@ -89,6 +89,8 @@
     "lint-staged": "15.5.0",
     "next-sitemap": "^4.2.3",
     "postcss": "8.5.3",
+    "postcss-import": "^16.1.1",
+    "postcss-nesting": "^13.0.2",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.11",
     "rimraf": "3.0.2",

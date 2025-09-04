@@ -17,22 +17,12 @@ import { API_ENDPOINTS } from '@/data/client/endpoints'
 import CategoryFilter from '@/components/product/category-filter'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import SeoData from '@/components/product/seoData'
-import fs from 'fs'
-import path from 'path'
 import PageDescription from '@/layouts/_page-description'
 
-interface HomeProps {
-  jsonLdData: any
-  jsonSchemaData: any
-}
+interface HomeProps {}
 
 export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
   let cwd = process.cwd()
-  const filePathSD = path.join(cwd, 'public', 'structureddata.json')
-  const jsonLdData = JSON.parse(fs.readFileSync(filePathSD, 'utf8'))
-
-  const filePathSchema = path.join(cwd, 'public', 'schema.json')
-  const jsonSchemaData = JSON.parse(fs.readFileSync(filePathSchema, 'utf8'))
 
   const queryClient = new QueryClient()
   try {
@@ -56,8 +46,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
     return {
       props: {
         ...(await serverSideTranslations(locale!, ['common'])),
-        jsonLdData,
-        jsonSchemaData,
         dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient)))
       },
       revalidate: 15 * 60 // In seconds
@@ -90,13 +78,10 @@ function Products() {
   )
 }
 
-const Home: NextPageWithLayout<HomeProps> = ({
-  jsonLdData,
-  jsonSchemaData
-}) => {
+const Home: NextPageWithLayout<HomeProps> = ({}) => {
   return (
     <>
-      <SeoData jsonLdData={jsonLdData} jsonSchemaData={jsonSchemaData} />
+      {/* <SeoData jsonLdData={jsonLdData} jsonSchemaData={jsonSchemaData} /> */}
       <Seo url={''} canonical={''} />
       <div className="hide-on-mobile hidden">
         <CategoryFilter />

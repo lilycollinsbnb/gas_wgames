@@ -1,17 +1,17 @@
 import { DefaultSeo as NextDefaultSeo } from 'next-seo'
 
 export const seoSettings = {
-  siteName: 'Assets 4 Godot',
-  siteName2: 'Assets for Godot',
-  mainPageTitle: 'Premium quality Godot assets marketplace',
+  siteName: 'Games 4 Godot',
+  siteName2: 'Games for Godot',
+  mainPageTitle: 'Games 4 Godot – Discover and share Godot Engine games',
   description:
-    'High-quality, premium game assets for Godot Engine. Regularly updated marketplace supporting game development, stable partnerships for individual creators and businesses.',
-  siteUrl: 'https://assets4godot.com',
+    'Games 4 Godot is a dedicated marketplace and community hub for Godot Engine games. Explore, play, and support premium and indie titles built with Godot.',
+  siteUrl: 'https://games4godot.com',
   twitter: {
     cardType: 'summary'
   },
   imageAlt:
-    'Premium-quality, game assets for Godot Engine including 3D models, textures, and scripts. Suitable for both individual creators and businesses.'
+    'Games 4 Godot – discover, play, and support premium and indie games built with the Godot Engine.'
 }
 
 const DefaultSeo = () => {

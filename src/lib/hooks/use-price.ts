@@ -1,4 +1,5 @@
 import { currentCurrency } from '@/data/static/currency'
+import { VAT_RATE } from '@/data/static/vat-rate'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 
@@ -69,4 +70,34 @@ export default function usePrice(
   return typeof value === 'string'
     ? { price: value, basePrice: null, discount: null }
     : value
+}
+
+interface UsePriceWithVATOptions {
+  amount: number
+  baseAmount?: number
+}
+
+export function usePriceWithVAT({
+  amount,
+  baseAmount
+}: UsePriceWithVATOptions) {
+  // Net prices
+  const net = usePrice({
+    amount,
+    baseAmount
+  })
+
+  // Gross prices
+  const gross = usePrice({
+    amount: amount * (1 + VAT_RATE),
+    baseAmount: baseAmount ? baseAmount * (1 + VAT_RATE) : undefined
+  })
+
+  return {
+    netPrice: net.price,
+    netBasePrice: net.basePrice,
+    grossPrice: gross.price,
+    grossBasePrice: gross.basePrice,
+    discount: net.discount ?? null
+  }
 }

@@ -1,3 +1,4 @@
+@import 'github-markdown-css/github-markdown-light.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -449,8 +450,6 @@ html.dark .react-tel-input .country-list .country:hover {
   max-width: 100%; /* Ensures container takes up full width */
   margin: 0 auto;
 }
-
-@import 'github-markdown-css/github-markdown-light.css';
 
 .markdown-body {
   background: none !important; /* Remove any background color */

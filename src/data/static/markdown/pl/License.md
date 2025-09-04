@@ -2,7 +2,7 @@ REGULAMIN INTERNETOWEJ PLATFORMY HANDLOWEJ
 # ASSETS 4 GODOT
 
 § 1. POSTANOWIENIA OGÓLNE
-1.	Operatorem Internetowej Platformy Handlowej ASSETS 4 GODOT (dalej jako: „Platforma”) jest Borysław Bobulski MATRIX RELIABILITY prowadzący działalność gospodarczą, adres do doręczeń: Osiedle Zielone 14/ 15, 33-100 Tarnów, Polska (dalej jako: „Operator”).
+1.	Operatorem Internetowej Platformy Handlowej ASSETS 4 GODOT (dalej jako: „Platforma”) jest spółka AOperat prowadzący działalność gospodarczą pod adresem: ul. Eugeniusza Kwiatkowskiego 9, 37-450 Stalowa Wola, Polska, adres do doręczeń: Osiedle Zielone 14/ 15, 33-100 Tarnów, Polska (dalej jako: „Operator”).
 2.	Regulamin Internetowej Platformy Handlowej ASSETS 4 GODOT (dalej jako: “Regulamin”) określa zasady funkcjonowania Platformy, w tym sposób licencjonowania Assetów oraz zasady i warunki sprzedaży lub zakupu Licencji; warunki i zasady korzystania przez Użytkowników z Platformy; a także prawa i obowiązki Użytkowników i Operatora.
 3.	Przed skorzystaniem z Platformy należy zapoznać się z treścią niniejszego Regulaminu.
 § 2. DEFINICJE

@@ -25,17 +25,18 @@ export default function Grid({
   isLoading,
   limit = 15
 }: GridProps) {
+  const { t } = useTranslation('common')
+
   if (!isLoading && !shops.length) {
     return (
       <ItemNotFound
-        title={'No Author found!'}
-        message={'Sorry, we don’t found any author'}
+        title={t('text-no-authors-found')}
+        message={t('text-no-authors-found-message')}
         className="pb-0 pt-5 md:px-6 md:pt-6 lg:px-7 3xl:px-8"
       />
     )
   }
 
-  const { t } = useTranslation('common')
   return (
     <div className="w-full">
       <motion.div
@@ -57,7 +58,7 @@ export default function Grid({
             disabled={isLoadingMore}
             isLoading={isLoadingMore}
           >
-            t('text-loadmore')
+            {t('text-loadmore')}
           </Button>
         </div>
       )}

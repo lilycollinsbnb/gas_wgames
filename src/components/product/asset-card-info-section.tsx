@@ -1,13 +1,10 @@
-import ImageWithFallback from '@/components/ui/image-with-fallback'
 import AnchorLink from '@/components/ui/links/anchor-link'
 import routes from '@/config/routes'
 import { useTranslation } from 'next-i18next'
 import AddToCart from '@/components/cart/add-to-cart'
 import { ItemType, type Asset, type User } from '@/types'
-import placeholder from '@/assets/images/placeholders/product.svg'
 import { isFree } from '@/lib/is-free'
-import usePrice from '@/lib/hooks/use-price'
-import { VAT_RATE } from '@/data/static/vat-rate'
+import { usePriceWithVAT } from '@/lib/hooks/use-price'
 
 type Props = {
   product: Asset
@@ -18,43 +15,16 @@ export default function AssetCardInfoSection({ product, me }: Props) {
   const { t } = useTranslation('common')
   const { name, slug, shop } = product ?? {}
 
-  const { price, basePrice } = usePrice({
-    amount: product.sale_price ? product.sale_price : product.price,
-    baseAmount: product.price
-  })
-
-  const netAmount = product.sale_price ?? product.price
-  const baseNetAmount = product.price
-
-  const { price: netPriceFormatted, basePrice: netBasePriceFormatted } =
-    usePrice({
-      amount: netAmount,
-      baseAmount: baseNetAmount
+  const { netPrice, netBasePrice, grossPrice, grossBasePrice } =
+    usePriceWithVAT({
+      amount: product.sale_price ?? product.price,
+      baseAmount: product.price
     })
 
-  const { price: grossPriceFormatted } = usePrice({
-    amount: netAmount * (1 + VAT_RATE)
-  })
-
-  const { price: grossBasePriceFormatted } = usePrice({
-    amount: baseNetAmount * (1 + VAT_RATE)
-  })
   const isFreeItem = isFree(product?.sale_price ?? product?.price)
 
   return (
     <div className="flex items-start justify-between pt-2">
-      {/* <div className="relative flex h-8 w-8 flex-shrink-0 overflow-hidden 4xl:h-9 4xl:w-9">
-        {shop && (
-          <ImageWithFallback
-            alt={shop?.name}
-            quality={100}
-            fill
-            src={shop?.logo?.thumbnail ?? placeholder}
-            className="rounded-full bg-light-500 object-cover dark:bg-dark-400"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        )}
-      </div> */}
       <div className="-mt-[1px] flex flex-col truncate rtl:text-right">
         <h3
           title={name}
@@ -93,16 +63,14 @@ export default function AssetCardInfoSection({ product, me }: Props) {
                 emoji
                 nobutton
               />
-              {isFreeItem
-                ? t('text-free')
-                : `${netPriceFormatted}+VAT / ${grossPriceFormatted}`}
+              {isFreeItem ? t('text-free') : `${netPrice}+VAT / ${grossPrice}`}
             </span>
-            {!isFreeItem && basePrice && (
+            {!isFreeItem && grossBasePrice && (
               <del
                 aria-label={t('Original price before discount')}
                 className="mt-1 whitespace-nowrap px-1 text-13px font-medium text-red dark:text-mustard"
               >
-                {`${grossBasePriceFormatted}`}
+                {grossBasePrice}
               </del>
             )}
           </>

@@ -5,7 +5,7 @@
 The Polish version of these Terms and Conditions shall prevail. The English version is provided for convenience only and shall not be binding.
 
 ### § 1. GENERAL PROVISIONS
-1. The operator of the online sales platform ASSETS 4 GODOT (hereinafter referred to as: the "Platform") is the Borysław Bobulski MATRIX RELIABILITY, correspondence address: Osiedle Zielone 14/15, 33-100 Tarnów, Poland (hereinafter referred to as: the "Operator").
+1. The operator of the online sales platform ASSETS 4 GODOT (hereinafter referred to as: the "Platform") is the company AOperat, conducting business at the address: Eugeniusza Kwiatkowskiego 9, 37-450 Stalowa Wola, Poland, correspondence address: Osiedle Zielone 14/15, 33-100 Tarnów, Poland (hereinafter referred to as: the "Operator").
 2. These Terms and Conditions (hereinafter referred to as: the "Regulations") specify the rules of operation of the Platform, including the method of licensing the Assets and the rules and conditions for the sale or purchase of Licenses; the terms and conditions for Users' use of the Platform; and the rights and obligations of Users and the Operator.
 3. Before using the Platform, users must read the content of these Regulations.
 

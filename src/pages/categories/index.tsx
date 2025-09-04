@@ -36,7 +36,9 @@ export const getStaticProps: GetStaticProps<CategoryTreePageProps> = async ({
     const licenses = await client.licenses.all({
       limit: 100,
       include_admin_created: true,
-      include_content: false
+      include_content: false,
+      sortedBy: SortOrder.Asc,
+      orderBy: 'name'
     })
     const godotVersions = await client.godotVersions.all({
       limit: 100,
@@ -83,7 +85,6 @@ function Products() {
   let categories = [] as string[]
 
   if (categoriesParam) {
-    // If query.categories is a string, split it by commas, or keep it as a single element array
     categories =
       typeof categoriesParam === 'string'
         ? categoriesParam.split(',')

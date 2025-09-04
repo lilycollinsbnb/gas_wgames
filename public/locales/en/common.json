@@ -550,5 +550,9 @@
   "text-beta-access-expired": "Code has expired",
   "text-activate": "Activate",
   "text-activate-product": "Activate Product",
-  "text-beta-access-already-used": "This code has already been used."
+  "text-beta-access-already-used": "This code has already been used.",
+  "text-game-added-to-account": "Game was successfully added to your account.",
+  "text-redeem-beta-access-confirmation": "Successfully redeemed access key",
+  "text-no-authors-found": "No Authors found!",
+  "text-no-authors-found-message": "Sorry, no authors were found."
 }

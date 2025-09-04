@@ -17,10 +17,10 @@ class CustomDocument extends Document {
     return (
       <Html dir={dir}>
         <Head>
-          <script
+          {/* <script
             async
             src="https://static.mywot.com/website_owners_badges/websiteOwnersBadge.js"
-          ></script>
+          ></script> */}
         </Head>
         <body>
           <Main />

@@ -6,15 +6,14 @@ import DashboardLayout from '@/layouts/_dashboard'
 import { useState } from 'react'
 import Input from '@/components/ui/forms/input'
 import Button from '@/components/ui/button'
-import { useBetaAccessFlow } from '@/data/games'
+import { useRedeemBetaAccess } from '@/data/games'
 
 const ActivateProductPage: NextPageWithLayout = () => {
-  const { fetchAndOpen } = useBetaAccessFlow()
   const { t } = useTranslation('common')
   const [code, setCode] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
-
+  const { redeem } = useRedeemBetaAccess()
   const handleFetch = async () => {
     if (!code) {
       setError(t('text-access-code-required'))
@@ -25,7 +24,7 @@ const ActivateProductPage: NextPageWithLayout = () => {
     setIsLoading(true)
 
     try {
-      await fetchAndOpen(code)
+      await redeem(code)
     } catch (err: any) {
       setError(err.message)
     } finally {

@@ -8,10 +8,10 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        hostname: 'assets4godot.com'
+        hostname: 'godot4games.com'
       },
       {
-        hostname: 'gas-website-dev-ashy.vercel.app'
+        hostname: 'gas-wgames.vercel.app'
       },
       {
         hostname: 'img.youtube.com'
@@ -40,9 +40,6 @@ module.exports = {
       },
       {
         hostname: 'dev-godot-asset-store.s3.eu-central-1.amazonaws.com'
-      },
-      {
-        hostname: 'gas-alb-website-723894374.eu-central-1.elb.amazonaws.com'
       }
     ]
   },

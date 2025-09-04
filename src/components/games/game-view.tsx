@@ -72,7 +72,7 @@ type GameBannerProps = {
 
 const GameBanner: React.FC<GameBannerProps> = ({ game }) => {
   if (!game.image?.original)
-    return <div className="h-48 w-full bg-gray-200 dark:bg-dark-300" />
+    return <div className="h-48 w-full bg-gray-200 dark:bg-dark-100" />
 
   return (
     <div
@@ -86,10 +86,10 @@ const GameBanner: React.FC<GameBannerProps> = ({ game }) => {
       />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-light-300 dark:from-transparent dark:to-dark-300/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/80 dark:from-transparent dark:to-black/80"></div>
 
       {/* Info anchored to bottom */}
-      <div className="absolute bottom-0 w-full px-4 pb-4 md:px-8">
+      <div className="absolute bottom-6 w-full px-4 pb-4 md:px-8">
         <GameBannerInfo game={game} />
       </div>
     </div>
